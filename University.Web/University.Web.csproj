@@ -55,6 +55,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -108,9 +111,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -129,8 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SelectContro.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +161,47 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap4.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap5.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bootstrap5.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bulma.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.bulma.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.dataTables.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.dataTables.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.foundation.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.foundation.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.jqueryui.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.semanticui.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\dataTables.semanticui.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\jquery.dataTables.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\images\sort_asc.png" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\images\sort_both.png" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\images\sort_desc.png" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap5.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bootstrap5.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bulma.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.bulma.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.dataTables.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.dataTables.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.foundation.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\jquery.dataTables.js" />
+    <Content Include="Scripts\libs\DataTables-1.11.5\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\libs\DataTables\DataTables-1.11.5\css\dataTables.bootstrap.css" />
     <Content Include="Scripts\libs\DataTables\DataTables-1.11.5\css\dataTables.bootstrap.min.css" />
     <Content Include="Scripts\libs\DataTables\DataTables-1.11.5\css\dataTables.bootstrap4.css" />
@@ -204,6 +248,8 @@
     <Content Include="Scripts\libs\DataTables\datatables.min.css" />
     <Content Include="Scripts\libs\DataTables\datatables.min.js" />
     <Content Include="Scripts\libs\Notify\notify.js" />
+    <Content Include="Scripts\libs\Select2\select2.min.css" />
+    <Content Include="Scripts\libs\Select2\select2.min.js" />
     <Content Include="Scripts\libs\SweetAlert\sweetalert.css" />
     <Content Include="Scripts\libs\SweetAlert\sweetalert.js" />
     <Content Include="Scripts\libs\SweetAlert\sweetalert.min.js" />
@@ -223,6 +269,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Instructors\Index.cshtml" />
+    <Content Include="Views\Instructors\Create.cshtml" />
+    <Content Include="Views\Instructors\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

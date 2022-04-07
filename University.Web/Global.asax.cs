@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using University.BL.DTOs;
 
+
 namespace University.Web
 {
     public class MvcApplication : System.Web.HttpApplication

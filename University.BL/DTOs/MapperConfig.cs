@@ -1,5 +1,8 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using University.BL.Models;
+
+
 
 namespace University.BL.DTOs
 {
@@ -9,11 +12,11 @@ namespace University.BL.DTOs
         {
             return new MapperConfiguration(x =>
             {
-                x.CreateMap<Course, CourseDTO>().ReverseMap();
-                x.CreateMap<Student, StudentDTO>().ReverseMap();
-                x.CreateMap<Instructor, InstructorDTO>().ReverseMap();
-                x.CreateMap<Department, DepartmentDTO>().ReverseMap();
-                x.CreateMap<OfficeAssignment, OfficeAssignmentDTO>().ReverseMap();
+                x.CreateMap<Course,CourseDTO> ().ReverseMap();
+                x.CreateMap<Student,StudentDTO> ().ReverseMap();
+                x.CreateMap<Instructor,InstructorDTO> ().ReverseMap();
+                x.CreateMap<Department,DepartmentDTO> ().ReverseMap();
+                x.CreateMap<OfficeAssignment,OfficeAssignmentDTO> ().ReverseMap();
             });
         }
     }

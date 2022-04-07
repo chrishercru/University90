@@ -1,33 +1,38 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
 }
+@*<div class="col-md-4">
+    <select class="form-control" id="CourseSelect"></select>
+</div>*@
+
+<hr/>
 
 <h2>Courses</h2>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-    Launch demo modal
+<button id="create" type="button" class="btn btn-success">
+    <i class="fas fa-user-plus"> </i> Create
 </button>
-
 <hr />
-
 <div id="rowCourses">
     <div id="divCourses">
-        <table id="tableCourses" class="table table-bordered" style="width:100%"></table>
+        <table id="tableCourses" class="table table-bordered" style="width 100%"></table>
     </div>
 </div>
 
+
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+<div class="modal fade" id="modalCourses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Courses</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Courses</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-            </div>
+            <div class="modal-body"></div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -35,15 +40,17 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function () {
         getCourses();
+        getCoursesList();
     });
 
     $("#create").click(function () {
-        $("#modal .modal-body", this).empty();
-        $("#modal .modal-body").load("/Controller/Action");
-        $("#modal").modal("show");
+        $("#modalCourses .modal-body", this).empty();
+        $("#modalCourses .modal-body").load("/Courses/Create");
+        $("#modalCourses").modal("show");
     });
 
     function getCourses() {
@@ -77,8 +84,8 @@
                     {
                         targets: 3,
                         render: function (data, type, row) {
-                            return '<a href="javascript:void" class="btn btn-warning edit">Edit</a>' +
-                                '<a href="javascript:void" class="btn btn-danger delete">Delete</a>';
+                            return '<a href="javascript:void" class="btn btn-warning edit fas fa-edit"></a>' +
+                                '<a href="javascript:void" class="btn btn-danger fas delete fa-trash"></a>';
                         }
                     }
                 ]
@@ -87,14 +94,14 @@
             $('#tableCourses').on('click', 'tbody a.edit', function (e) {
                 let id = $(this).parent().siblings('td')[0].innerText;
 
-                $('#modal .modal-body', this).empty();
-                $('#modal .modal-body').load('/Controller/Action/' + id);
-                $("#modal").modal("show");
+                $('#modalCourses .modal-body', this).empty();
+                $('#modalCourses .modal-body').load('/Courses/Edit/' + id);
+                $("#modalCourses").modal("show");
             });
 
             $('#tableCourses').on('click', 'tbody a.delete', function (data) {
                 let id = $(this).parent().siblings('td')[0].innerText;
-                //delete (id);
+                deleteCourse(id);
             });
 
         }).fail(function (data) {
@@ -102,6 +109,27 @@
         });
     }
 
+    function deleteCourse(id) {
+        $.get("/Courses/Delete/" + id).done(function (data) {
+            if (data.IsSuccess) {
+                getCourses();
+            } else {
+                $.notify(data.Message, "error")
+            }
+        }).fail(function (data) {
+            console.table(data);
+        })
+    }
+
+    function getCoursesList() {
+        $.get('/Courses/GetCourses', function (data) {
+            $("#CourseSelect").empty();
+            $("#CourseSelect").select2({
+                placeholder: "Seleccione",
+                data: JSON.parse(data)
+            });
+            $("#CourseSelect").val("").trigger("change");
+        });
+    }
+
 </script>
-
-
