@@ -3,10 +3,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Instructors</h2>
+<h2>Profesores</h2>
 <!-- Button trigger modal -->
 <button id="create" type="button" class="btn btn-success">
-    <i class="fas fa-user-plus"> </i> Create
+    <i class="fas fa-user-plus"> </i> 
+    Crear
 </button>
 <hr />
 <div id="rowInstructors">
@@ -22,14 +23,14 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Courses</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Profesores</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -79,7 +80,7 @@
                     {
                         targets: 4,
                         render: function (data, type, row) {
-                            return '<a href="javascript:void" class="btn btn-warning edit fas fa-user-edit"></a>' +
+                            return '<a href="javascript:void" class="btn btn-warning edit fas fa-user-edit"></a>' + " " +
                                 '<a href="javascript:void" class="btn btn-danger delete fas fa-trash"></a>';
                         }
                     }
@@ -107,8 +108,10 @@
     function deleteInstructor(id) {
         $.get("/Instructors/Delete/" + id).done(function (data) {
             if (data.IsSuccess) {
+                swal("Cambio Exitoso", "Eliminado Correctamente", "success")
                 getInstructors();
             } else {
+                swal("Alerta Critica", "No se ejecuta la accion requerida", "error")
                 $.notify(data.Message, "error")
             }
         }).fail(function (data) {

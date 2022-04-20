@@ -72,7 +72,7 @@
                     { title: 'ID', data: 'ID', className: 'd-none' },
                     { title: 'LastName', data: 'LastName' },
                     { title: 'FirstMidName', data: 'FirstMidName' },
-                    { title: 'EnrollmentDate', data: 'EnrollmentDateFormat' },
+                    { title: 'FechaRegistro', data: 'EnrollmentDateFormat' },
                     { title: 'Options', data: null }
                 ],
 
@@ -110,7 +110,7 @@
     function deleteStudent(id) {
         $.get("/Students/Delete/" + id).done(function (data) {
             if (data.IsSuccess) {
-                getCourses();
+                getStudents();
             } else {
                 $.notify(data.Message, "error")
             }

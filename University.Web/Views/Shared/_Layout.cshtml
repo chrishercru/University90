@@ -16,16 +16,19 @@
 
     <!-- Site -->
     <link rel="stylesheet" href="~/Content/Site.css">
-    <script src="~/Scripts/Site.js"></script>
+    @*@<script src="~/Scripts/Site.js"></script>*@
+
     <script type="text/javascript" src="~/Scripts/libs/DataTables/datatables.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Scripts/libs/DataTables/datatables.css" />
     <script type="text/javascript" src="~/Scripts/libs/SweetAlert/sweetalert.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Scripts/libs/SweetAlert/sweetalert.css" />
-
     <script type="text/javascript" src="~/Scripts/libs/Select2/select2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Scripts/libs/Select2/select2.min.css" />
-
+    
     <script type="text/javascript" src="~/Scripts/libs/Notify/notify.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/libs/Morris/morris.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/libs/Morris/morris.css" />
 
 </head>
 <body>
@@ -35,15 +38,15 @@
         <!-- ============================================================== -->
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">
-                <img src="~/Assets/angular-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-                University
+                <img src="~/Assets/DeportivoCali.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                Proyecto University CSHC
             </div>
             <div class="list-group list-group-flush">
                 
-                    @Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                    @Html.ActionLink("Courses", "Index", "Courses", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                    @Html.ActionLink("Students", "Index", "Students", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
-                    @Html.ActionLink("Instructors", "Index", "Instructors", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                    @Html.ActionLink("Inicio", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                    @Html.ActionLink("Cursos", "Index", "Courses", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                    @Html.ActionLink("Estudiantes", "Index", "Students", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
+                    @Html.ActionLink("Profesores", "Index", "Instructors", routeValues: null, htmlAttributes: new { @class = "list-group-item list-group-item-action bg-light" })
             </div>
         </div>
         <!-- ============================================================== -->
