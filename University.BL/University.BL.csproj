@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\SelectControl.cs" />
+    <Compile Include="DTOs\DonutExampleDTO.cs" />
     <Compile Include="DTOs\CourseDTO.cs" />
     <Compile Include="DTOs\DepartmentDTO.cs" />
     <Compile Include="DTOs\InstructorDTO.cs" />

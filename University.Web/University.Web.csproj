@@ -283,6 +283,7 @@
     <Content Include="Views\Instructors\Create.cshtml" />
     <Content Include="Views\Instructors\Edit.cshtml" />
     <Content Include="Views\Dashboard\Donut.cshtml" />
+    <Content Include="Views\Dashboard\Bar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
