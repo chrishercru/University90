@@ -284,6 +284,9 @@
     <Content Include="Views\Instructors\Edit.cshtml" />
     <Content Include="Views\Dashboard\Donut.cshtml" />
     <Content Include="Views\Dashboard\Bar.cshtml" />
+    <Content Include="Views\Oficinas\Create.cshtml" />
+    <Content Include="Views\Oficinas\Edit.cshtml" />
+    <Content Include="Views\Oficinas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
