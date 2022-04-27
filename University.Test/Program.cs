@@ -50,8 +50,8 @@ namespace University.Test
                       orderby query.Count() descending
                       select query;
 
-            var resultEx3 = ex3.FirstOrDefault()
-                Console.WriteLine($"{resultEx3.Key.AuthorId} - {resultEx3.Key.Name} - {resultEx3.Count()}")
+            var resultEx3 = ex3.FirstOrDefault();
+            Console.WriteLine($"{resultEx3.Key.AuthorId} - {resultEx3.Key.Name} - {resultEx3.Count()}");
                 Console.WriteLine();
             foreach (var item in ex3)
             {
